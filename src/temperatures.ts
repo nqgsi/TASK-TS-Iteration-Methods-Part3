@@ -15,10 +15,11 @@ const temperatures = [
  *  filterHighTemperatures(temperatures); // => [25, 28, 30, 27, 29, 26, 28, 30, 27, 26, 25, 28, 29, 27, 26]
  */
 function filterHighTemperatures(temps: number[]): number[] {
-  // Your code here
+  let fht = temperatures.filter((a) => a >= 25);
 
-  return []; // replace the empty array with what you see is fit
+  return fht; // replace the empty array with what you see is fit
 }
+console.log(filterHighTemperatures(temperatures));
 
 /**
  * `filterLowTemperatures` function:
@@ -28,9 +29,9 @@ function filterHighTemperatures(temps: number[]): number[] {
  *  filterLowTemperatures(temperatures); // => [19, 18, 19, 19]
  */
 function filterLowTemperatures(temps: number[]): number[] {
-  // Your code here
+  let fhl = temperatures.filter((s) => s < 20);
 
-  return []; // replace the empty array with what you see is fit
+  return fhl; // replace the empty array with what you see is fit
 }
 
 /**
@@ -42,10 +43,11 @@ function filterLowTemperatures(temps: number[]): number[] {
  *  convertCelsiusToFahrenheit([25, 30, 20]); // => [77, 86, 68]
  */
 function convertCelsiusToFahrenheit(temps: number[]): number[] {
-  // Your code here
+  let tf = temperatures.map((f) => (f * 9) / 5 + 32);
 
-  return []; // replace the empty array with what you see is fit
+  return tf; // replace the empty array with what you see is fit
 }
+console.log(convertCelsiusToFahrenheit(temperatures));
 
 /**
  * `labelTemperatures` function:
@@ -60,9 +62,11 @@ function convertCelsiusToFahrenheit(temps: number[]): number[] {
 type TemperatureLabel = "Warm" | "Mild" | "Cool";
 
 function labelTemperatures(temps: number[]): TemperatureLabel[] {
-  // Your code here
+  let tl = temperatures.map((d) =>
+    d >= 25 ? "Warm" : d > 20 ? "Mild" : "Cool"
+  ); // i only used chatgbt for this ?
 
-  return []; // replace the empty array with what you see is fit
+  return tl; // replace the empty array with what you see is fit
 }
 
 /**
@@ -73,11 +77,9 @@ function labelTemperatures(temps: number[]): TemperatureLabel[] {
  *  getMaxTemperature([25, 30, 20]); // => 30
  */
 function getMaxTemperature(temps: number[]): number {
-  // Your code here
-
-  return -1; // replace -1 with what you see is fit
+  return Math.max(...temperatures); // replace -1 with what you see is fit
 }
-
+console.log(getMaxTemperature(temperatures));
 /**
  * `getMinTemperature` function:
  *  - Accepts a "temps" parameter of type "number[]".
@@ -86,9 +88,7 @@ function getMaxTemperature(temps: number[]): number {
  *  getMinTemperature([25, 30, 20]); // => 20
  */
 function getMinTemperature(temps: number[]): number {
-  // Your code here
-
-  return -1; // replace -1 with what you see is fit
+  return Math.min(...temperatures); // replace -1 with what you see is fit
 }
 
 export {
